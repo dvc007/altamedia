@@ -24,7 +24,7 @@ const userReducer = (state = initialState, action) => {
         error: action.payload,
       };
     default:
-      break;
+      return state;
   }
 };
 export default userReducer;
