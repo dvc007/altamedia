@@ -1,98 +1,83 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
-import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import { Button, Checkbox, Form, Input } from "antd";
-
+import "./Login.css";
 const Login = () => {
-  const onFinish = (values) => {
-    console.log("Received values of form: ", values);
-  };
-
+  const [state, setState] = useState({
+    email: "",
+    password: "",
+  });
+  const { email, password } = state;
   const handleGoogleSignIn = () => {};
   const handleFBSignIn = () => {};
-
+  const handleSubmit = () => {};
+  const handleChange = () => {};
   return (
     <div>
-      <Form
-        name="normal_login"
-        className="login-form"
-        initialValues={{
-          remember: true,
-        }}
-        onFinish={onFinish}
-      >
-        <Form.Item
-          name="username"
-          rules={[
-            {
-              required: true,
-              message: "Please input your Username!",
-            },
-          ]}
-        >
-          <Input
-            prefix={<UserOutlined className="site-form-item-icon" />}
-            placeholder="Username"
-          />
-        </Form.Item>
-        <Form.Item
-          name="password"
-          rules={[
-            {
-              required: true,
-              message: "Please input your Password!",
-            },
-          ]}
-        >
-          <Input
-            prefix={<LockOutlined className="site-form-item-icon" />}
-            type="password"
-            placeholder="Password"
-          />
-        </Form.Item>
-        <Form.Item>
-          <Form.Item name="remember" valuePropName="checked" noStyle>
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
-
-          <a className="login-form-forgot" href="/">
-            Forgot password
-          </a>
-        </Form.Item>
-
-        <Form.Item>
-          <Button
-            type="primary"
-            htmlType="submit"
-            className="login-form-button"
+      <div id="logreg-forms">
+        <form className="form-signin" onSubmit={handleSubmit}>
+          <h1
+            className="h3 mb-3 font-weight-normal"
+            style={{ textAlign: "center" }}
           >
-            Log in
-          </Button>
-          Or <a href="/">register now!</a>
-        </Form.Item>
-      </Form>
-
-      <div className="social-login">
-        <button
-          className="btn google-btn social-btn"
-          type="button"
-          onclick={handleGoogleSignIn}
-        >
-          <span>
-            <i>Sign in with Google+</i>
-          </span>
-        </button>
-
-        <button
-          className="btn google-btn social-btn"
-          type="button"
-          onclick={handleFBSignIn}
-        >
-          <span>
-            <i>Sign in with facebook</i>
-          </span>
-        </button>
+            Sign in
+          </h1>
+          <div className="social-login">
+            <button
+              className="btn google-btn social-btn"
+              type="button"
+              onclick={handleGoogleSignIn}
+            >
+              <span>
+                <i className="fab fa-google-plus-g">Sign in with Google+</i>
+              </span>
+            </button>
+            <button
+              className="btn facebook-btn social-btn"
+              type="button"
+              onclick={handleFBSignIn}
+            >
+              <span>
+                <i className="fab fa-facebook-f">Sign in with Facebook</i>
+              </span>
+            </button>
+          </div>
+          <p style={{ textAlign: "center" }}>OR</p>
+          <input
+            type="email"
+            id="inputEmail"
+            className="form-control"
+            placeholder="Email Address"
+            name="email"
+            onChange={handleChange}
+            value={email}
+            required
+          />
+          <input
+            type="password"
+            id="inputPassword"
+            className="form-control"
+            placeholder="Password"
+            name="password"
+            onChange={handleChange}
+            value={password}
+            required
+          />
+          <button className="btn btn-secondary btn-block" type="submit">
+            Sign In
+          </button>
+          <hr />
+          <p>Don't have an account</p>
+          <Link to="/register">
+            <button
+              className="btn btn-primary btn-block"
+              type="button"
+              id="btn-signup"
+            >
+              <i className="fas fa-user-plus"></i> Sign up New Account
+            </button>
+          </Link>
+        </form>
       </div>
     </div>
   );

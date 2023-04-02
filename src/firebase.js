@@ -1,7 +1,9 @@
-import firebase from "firebase/app";
 import "firebase/auth";
-import { initializeApp } from "firebase/app";
+import firebase from "firebase/app";
 
+import { initializeApp } from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
 const firebaseConfig = {
   apiKey: "AIzaSyBlK9GTVnMzV4erzgSDyqhi0iG5PDUPGdU",
   authDomain: "react-firebase-altamedia.firebaseapp.com",
