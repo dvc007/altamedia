@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./Register.css";
 import { registerInitiate } from "./../../Redux/actions";
 const Register = () => {
@@ -11,7 +11,7 @@ const Register = () => {
     passwordConfirm: "",
   });
   const { currentUser } = useSelector((state) => state.user);
-  const history = useHistory();
+  const history = useNavigate();
   useEffect(() => {
     if (currentUser) {
       history.push("/");
