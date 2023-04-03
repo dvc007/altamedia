@@ -156,7 +156,7 @@ const Register = () => {
                         Đăng ký
                       </button>
                     </div>
-                    <div className="flex items-center justify-center pb-4">
+                    {/* <div className="flex items-center justify-center pb-4">
                       <button
                         type="button"
                         className="btn bg-transparent text-indigo-500 font-bold"
@@ -165,7 +165,7 @@ const Register = () => {
                           <button type="button">Quay về</button>
                         </Link>{" "}
                       </button>
-                    </div>
+                    </div> */}
                   </form>
                 </div>
 
