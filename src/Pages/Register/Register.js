@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-// import { useHistory } from "react-router";
 import "./Register.css";
 import { registerInitiate } from "./../../Redux/actions";
 const Register = () => {
@@ -12,13 +10,10 @@ const Register = () => {
     passwordConfirm: "",
   });
   const { currentUser } = useSelector((state) => state.user);
-  // const history = useHistory();
 
   useEffect(() => {
     if (currentUser) {
-      // history.push("/");
-
-      window.location.href = "/";
+      window.location.href = "/login";
     }
   }, [currentUser]);
   const { email, password, displayName, passwordConfirm } = state;
@@ -37,55 +32,6 @@ const Register = () => {
   };
   return (
     <div>
-      {/* <div id="register-form">
-        <form className="form-signup" onSubmit={handleSubmit}>
-          <br />
-          <h1
-            className="h3 mb-3 font-weight-normal"
-            style={{ textAlign: "center" }}
-          >
-            Sign up
-          </h1>
-          <input
-            type="text"
-            id="displayName"
-            placeholder="Full Name"
-            name="displayName"
-            onChange={handleChange}
-            value={displayName}
-            required
-          />
-          <input
-            type="email"
-            id="user-email"
-            name="email"
-            onChange={handleChange}
-            value={email}
-            required
-          />
-          <input
-            type="password"
-            id="inputPassword"
-            name="password"
-            onChange={handleChange}
-            value={password}
-            required
-          />
-          <input
-            type="password"
-            id="inputRePassword"
-            name="passwordConfirm"
-            onChange={handleChange}
-            value={passwordConfirm}
-            required
-          />
-          <button className="btn btn-secondary btn-block" type="submit">
-            Sign Up
-          </button>
-          <Link to="/login">Back</Link>
-        </form>
-        <br />
-      </div> */}
       <section className="h-100 ">
         <div className="py-5 h-full">
           <div className="w-full">
@@ -156,16 +102,6 @@ const Register = () => {
                         Đăng ký
                       </button>
                     </div>
-                    {/* <div className="flex items-center justify-center pb-4">
-                      <button
-                        type="button"
-                        className="btn bg-transparent text-indigo-500 font-bold"
-                      >
-                        <Link to="/login">
-                          <button type="button">Quay về</button>
-                        </Link>{" "}
-                      </button>
-                    </div> */}
                   </form>
                 </div>
 
